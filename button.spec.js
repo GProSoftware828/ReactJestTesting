@@ -1,25 +1,22 @@
-import { React } from 'react';
-import { TestUtils } from 'react-dom/test-utils';
-import { Button } from './button';
+import React, { Component } from 'react';
+import { shallow, mount, render } from 'enzyme';
+import Button from './button';
+import Adapter from 'enzyme-adapter-react-16';
 
 test('renders with text', () => {
   const text = 'text';
 
-  const renderer = TestUtils.createRenderer();
-  renderer.render(<Button text={text} />);
-  const button = renderer.getRenderOutput();
+  const button = shallow(<Button text={text} />);
 
-  expect(button.type).toBe('button');
-  expect(button.props.children).toBe(text);
+  expect(button.type()).toBe('button');
+  expect(button.text()).toBe(text);
 });
 
 test('fires the onClick callback', () => {
   const onClick = jest.fn();
 
-  const tree = TestUtils.renderIntoDocument(<Button onClick={onClick} />);
+  const button = shallow(<Button onClick={onClick} />);
 
-  const button = TestUtils.findRenderedDOMComponentWithTag(tree, 'button');
-
-  TestUtils.Simulate.click(button);
+  button.simulate('click');
   expect(onClick).toBeCalled();
 });

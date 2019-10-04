@@ -11,11 +11,14 @@
   "devDependencies": {
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
     "react": "^16.10.1",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.10.1"
-  },
-  "dependencies": {}
+  }
 }
