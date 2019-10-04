@@ -1,0 +1,30 @@
+header {
+  display: block;
+
+  .wrap {
+    display: block;
+    width: auto;
+    max-width: 750px;
+    height: 100%;
+
+    .logo {
+      display: block;
+      margin-top: 275rem;
+      background-color: #282c34;
+      width: 75%;
+      position: absolute;
+      justify-content: center;
+      top: 20%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      transform: translateY(-50%);
+
+      img {
+        display: block;
+        width: 65%;
+        margin-left: 20%;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
