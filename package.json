@@ -7,6 +7,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "check-prop-types": "^1.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",

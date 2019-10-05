@@ -54,7 +54,10 @@ export class Randoms extends React.Component {
               {this.state.person.name.first} {this.state.person.name.last}
             </div>
             <div>
-              <img src={this.state.person.picture.large} />
+              <img
+                src={this.state.person.picture.large}
+                alt="photo_random_person"
+              />
             </div>
           </div>
         )}

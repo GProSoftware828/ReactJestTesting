@@ -6,6 +6,16 @@ import Randoms from './components/randomPerson';
 import Certifications from './components/certifications';
 import './app.scss';
 
+const tempArr = [
+  {
+    fName: 'Geo',
+    lName: 'Doe',
+    email: 'geoDoe123@gmail.com',
+    location: 'Dayton',
+    onlineStatus: true
+  }
+];
+
 const App = () => {
   return (
     <div className="App">
@@ -14,6 +24,7 @@ const App = () => {
         <Headline
           header="Rand-o Pers-O (These people are random)"
           desc="Click 'Next' for random people"
+          tempArr={tempArr}
         />
         <Randoms />
       </section>
