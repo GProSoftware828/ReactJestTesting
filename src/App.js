@@ -31,10 +31,22 @@ export class App extends Component {
           title: 'React'
         },
         {
-          title: 'Redux'
+          title: '.NET'
         },
         {
-          title: 'Axios'
+          title: 'Angular'
+        },
+        {
+          title: 'JavaScript in general'
+        },
+        {
+          title: 'Ruby on Rails'
+        },
+        {
+          title: 'C# in general'
+        },
+        {
+          title: 'Linux command line/Git'
         }
       ]
     };
@@ -44,6 +56,11 @@ export class App extends Component {
   // fetch() {
   //   this.props.fetchPosts();
   // }
+
+  // skillToggle = () => {
+  //   const doesShow = this.state.showSkills;
+  //   this.setState({ showSkills: !doesShow });
+  // };
 
   render() {
     const { props } = this.props;
@@ -57,22 +74,8 @@ export class App extends Component {
       <div className="App">
         <Header />
         <SharedButton {...configButton} />
-        {/* {posts.length > 0 && (
-          <div>
-            {posts.map((post, index) => {
-              const { title, body } = post;
-              const configListItem = {
-                title,
-                desc: body
-              };
-              return <ListItem key={index} {...configListItem} />;
-            })}
-          </div>
-        )} */}
-        {this.state.Data.map((
-          item,
-          index //this works because it has state
-        ) => (
+        <h3>Some of my main skills:</h3>
+        {this.state.Data.map((item, index) => (
           <p>{item.title}</p>
         ))}
         <section className="headline">
@@ -88,6 +91,7 @@ export class App extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
     posts: state.posts
