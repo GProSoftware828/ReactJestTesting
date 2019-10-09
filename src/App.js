@@ -7,8 +7,8 @@ import SharedButton from './components/button';
 import Certifications from './components/certifications';
 import ListItem from './components/listItem';
 import { connect } from 'react-redux';
-//import { Provider } from 'react-redux';
-//import { store } from './createStore';
+import { Provider } from 'react-redux';
+import { store } from './createStore';
 import { fetchPosts } from './actions';
 import './app.scss';
 
@@ -25,12 +25,25 @@ const tempArr = [
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.fetch = this.fetch.bind(this);
+    this.state = {
+      Data: [
+        {
+          title: 'React'
+        },
+        {
+          title: 'Redux'
+        },
+        {
+          title: 'Axios'
+        }
+      ]
+    };
+    // this.fetch = this.fetch.bind(this);
   }
 
-  fetch() {
-    this.props.fetchPosts();
-  }
+  // fetch() {
+  //   this.props.fetchPosts();
+  // }
 
   render() {
     const { props } = this.props;
@@ -44,7 +57,7 @@ export class App extends Component {
       <div className="App">
         <Header />
         <SharedButton {...configButton} />
-        {posts.length > 0 && (
+        {/* {posts.length > 0 && (
           <div>
             {posts.map((post, index) => {
               const { title, body } = post;
@@ -55,7 +68,13 @@ export class App extends Component {
               return <ListItem key={index} {...configListItem} />;
             })}
           </div>
-        )}
+        )} */}
+        {this.state.Data.map((
+          item,
+          index //this works because it has state
+        ) => (
+          <p>{item.title}</p>
+        ))}
         <section className="headline">
           <Headline
             header="Rand-o Pers-O (These people are random)"
@@ -75,16 +94,13 @@ const mapStateToProps = state => {
   };
 };
 
-/*const ConnectedApp = connect(
-  mapStateToProps,
-  { fetchPosts }
-)(App);
+// const ConnectedApp = connect => (mapStateToProps, { fetchPosts })(App);
 
-export default ConnectedApp(
-  <Provider store={store}>
-    <ConnectedApp />
-  </Provider>
-);*/
+// export default ConnectedApp(
+//   <Provider store={store}>
+//     <ConnectedApp />
+//   </Provider>
+// );
 
 export default connect(
   mapStateToProps,
