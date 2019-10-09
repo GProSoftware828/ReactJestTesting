@@ -57,10 +57,10 @@ export class App extends Component {
   //   this.props.fetchPosts();
   // }
 
-  skillToggle = () => {
-    const doesShow = this.state.showSkills;
-    this.setState({ showSkills: !doesShow });
-  };
+  // skillToggle = () => {
+  //   const doesShow = this.state.showSkills;
+  //   this.setState({ showSkills: !doesShow });
+  // };
 
   render() {
     const { props } = this.props;
@@ -75,10 +75,10 @@ export class App extends Component {
         <Header />
         <SharedButton {...configButton} />
         <br />
-        <button onClick={this.skillsToggle}>Some of my main skills:</button>
-        {this.state.showSkills === true
-          ? this.state.Data.map((item, index) => <p>{item.title}</p>)
-          : null}
+        <h3>Array.map() of some of my main skills:</h3>
+        {this.state.Data.map((item, index) => (
+          <p>{item.title}</p>
+        ))}
         <section className="headline">
           <Headline
             header="Rand-o Pers-O (These people are random)"
