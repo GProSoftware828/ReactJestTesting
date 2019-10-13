@@ -1,40 +1,60 @@
 import React from 'react';
 import './styles.scss';
-import ReactAdvanced from '../../assets/graphics/ReactAdvanced.jpg';
-import TypeScript6_2019 from '../../assets/graphics/TypeScript6_2019.jpg';
-import Linux6_2019 from '../../assets/graphics/Linux6_2019.jpg';
-import Cplusplus6_2019 from '../../assets/graphics/Cplusplus6_2019.jpg';
-import Java6_2019 from '../../assets/graphics/Java6_2019.jpg';
-import Angular5_2019 from '../../assets/graphics/Angular5_2019.jpg';
-import Rails12_2018 from '../../assets/graphics/Rails12_2018.jpg';
-import HTMLCSS12_2018 from '../../assets/graphics/HTMLCSS12_2018.jpg';
-import PHP12_2018 from '../../assets/graphics/PHP12_2018.jpg';
-import JS8_2018 from '../../assets/graphics/JS8_2018.jpg';
-import AJAX8_2018 from '../../assets/graphics/AJAX8_2018.jpg';
-import AJAX5_2018 from '../../assets/graphics/AJAX5_2018.jpg';
-import AngularFour5_2018 from '../../assets/graphics/AngularFour5_2018.jpg';
+import { Link } from 'react-router-dom';
 
-const Certifications = props => {
+// import ReactDOM from 'react-dom';
+import { Gallery, GalleryImage } from 'react-gesture-gallery';
+
+const images = [
+  'https://i.ibb.co/7QL0Lt5/React-Advanced.jpg',
+  'https://i.ibb.co/S0kX4gP/Type-Script6-2019.jpg',
+  'https://i.ibb.co/Y24LX8m/Linux6-2019.jpg',
+  'https://i.ibb.co/yFLtSjc/Cplusplus6-2019.jpg',
+  'https://i.ibb.co/RSF6GXc/Java6-2019.jpg',
+  'https://i.ibb.co/KmywwQ1/Angular5-2019.jpg',
+  'https://i.ibb.co/rcPQsS9/Rails12-2018.jpg',
+  'https://i.ibb.co/QK2Gqhw/HTMLCSS12-2018.jpg',
+  'https://i.ibb.co/Hr6vk2m/PHP12-2018.jpg',
+  'https://i.ibb.co/mT2mCkj/JS8-2018.jpg',
+  'https://i.ibb.co/HddcMRs/AJAX8-2018.jpg',
+  'https://i.ibb.co/W2rp2yX/AJAX5-2018.jpg',
+  'https://i.ibb.co/5jsFdYd/Angular-Four5-2018.jpg'
+];
+
+const Certifications = () => {
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      if (index === 12) {
+        setIndex(0);
+      } else {
+        setIndex(prev => prev + 1);
+      }
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [index]);
+
   return (
-    <header>
-      <div className="wrap">
-        <div className="logo">
-          <img src={ReactAdvanced} alt="ReactAdvanced" />
-          <img src={TypeScript6_2019} alt="TypeScript" />
-          <img src={Linux6_2019} alt="Linux" />
-          <img src={Cplusplus6_2019} alt="CPlusPlus" />
-          <img src={Java6_2019} alt="Java" />
-          <img src={Angular5_2019} alt="Angular.123TypeScript" />
-          <img src={Rails12_2018} alt="Rails" />
-          <img src={HTMLCSS12_2018} alt="H.T.M.L.123C.S.S." />
-          <img src={PHP12_2018} alt="PHP" />
-          <img src={JS8_2018} alt="JavaScript" />
-          <img src={AJAX8_2018} alt="AJAX" />
-          <img src={AJAX5_2018} alt="AJAX" />
-          <img src={AngularFour5_2018} alt="Angular" />
-        </div>
-      </div>
-    </header>
+    <div>
+      <Gallery
+        style={{
+          background: 'black',
+          height: '90vh',
+          width: '100vw'
+        }}
+        index={index}
+        onRequestChange={i => {
+          setIndex(i);
+        }}
+        data-test="CertificationsElement"
+      >
+        {images.map(image => (
+          <GalleryImage objectFit="contain" key={image} src={image} />
+        ))}
+      </Gallery>
+      <Link to="/">Back</Link>
+    </div>
   );
 };
 

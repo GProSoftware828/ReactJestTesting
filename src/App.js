@@ -1,36 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './app.scss';
-import Header from './components/header';
-import Headline from './components/headline';
-import Randoms from './components/randomPerson';
 import Certifications from './components/certifications';
 import './app.scss';
+import { Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { Home } from './components/home';
 
-const tempArr = [
-  {
-    fName: 'Geo',
-    lName: 'Doe',
-    email: 'geoDoe123@gmail.com',
-    location: 'Dayton',
-    onlineStatus: true
+export class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Route path="/certifications" exact component={Certifications} />
+        <Route path="/" exact component={Home} />
+      </BrowserRouter>
+    );
   }
-];
-
-const App = () => {
-  return (
-    <div className="App">
-      <Header />
-      <section className="headline">
-        <Headline
-          header="Rand-o Pers-O (These people are random)"
-          desc="Click 'Next' for random people"
-          tempArr={tempArr}
-        />
-        <Randoms />
-      </section>
-      <Certifications />
-    </div>
-  );
-};
+}
 
 export default App;
