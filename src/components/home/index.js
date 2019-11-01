@@ -37,7 +37,6 @@ export class Home extends React.Component {
       <div className="App">
         <section className="headline">
           <Link to="/certifications">View Certifications</Link>
-          <Link to="/govTemp/govTemp.js">View Template</Link>
           <Headline
             header="Random people that don't have my certifications!! LOL"
             desc="Click 'Next' for random people"
