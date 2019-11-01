@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 
 const images = [
+  'https://i.ibb.co/j56TTtx/React-Redux-Node.jpg',
+  'https://i.ibb.co/JdkFLZv/React-Redux10-23-2019.jpg',
   'https://i.ibb.co/7QL0Lt5/React-Advanced.jpg',
   'https://i.ibb.co/S0kX4gP/Type-Script6-2019.jpg',
   'https://i.ibb.co/Y24LX8m/Linux6-2019.jpg',
